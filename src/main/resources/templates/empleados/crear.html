@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurapp - Crear Empleado</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Crear Empleado</h1>
+<form th:action="@{/empleados/guardar}" th:object="${empleado}" method="post">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" th:field="*{nombre}" required>
+
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido" th:field="*{apellido}" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" th:field="*{email}" required>
+
+    <label for="clave">Clave:</label>
+    <input type="password" id="clave" th:field="*{clave}" required>
+
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" id="telefono" th:field="*{telefono}" required>
+
+    <input type="submit" value="Guardar">
+</form>
+</body>
+</html>

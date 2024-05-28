@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurapp - Crear Mesa</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Crear Mesa</h1>
+<form th:action="@{/mesas/guardar}" th:object="${mesa}" method="post">
+    <label for="numeroMesa">Número de Mesa:</label>
+    <input type="number" id="numeroMesa" th:field="*{numeroMesa}" required>
+
+    <label for="capacidad">Capacidad:</label>
+    <input type="number" id="capacidad" th:field="*{capacidad}" required>
+
+    <label for="estado">Estado:</label>
+    <input type="text" id="estado" th:field="*{estado}" required>
+
+    <input type="submit" value="Guardar">
+</form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurapp - Empleados</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Empleados</h1>
+<a href="/empleados/crear">Nuevo empleado</a>
+<table>
+    <thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Correo</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="empleado : ${empleados}">
+        <td th:text="${empleado.nombre}">Nombre</td>
+        <td th:text="${empleado.apellido}">Apellido</td>
+        <td th:text="${empleado.email}">Correo</td>
+        <td>
+            <a th:href="@{'/empleados/editar/' + ${empleado.idEmpleado}}">Editar</a>
+            <a th:href="@{'/empleados/eliminar/' + ${empleado.idEmpleado}}">Eliminar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

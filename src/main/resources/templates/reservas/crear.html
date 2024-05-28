@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurapp - Crear Reserva</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Crear Reserva</h1>
+<form th:action="@{/reservas/guardar}" th:object="${reserva}" method="post">
+
+    <div>
+        <label for="nombreCliente">Nombre del Cliente:</label>
+        <input type="text" id="nombreCliente" th:field="*{cliente.nombre}" required>
+
+        <label for="apellidoCliente">Apellido del Cliente:</label>
+        <input type="text" id="apellidoCliente" th:field="*{cliente.apellido}" required>
+
+        <label for="emailCliente">Email del Cliente:</label>
+        <input type="text" id="emailCliente" th:field="*{cliente.email}" required>
+
+        <label for="telefonoCliente">Teléfono del Cliente:</label>
+        <input type="text" id="telefonoCliente" th:field="*{cliente.telefono}" required>
+
+        <label for="direccionCliente">Dirección del Cliente:</label>
+        <input type="text" id="direccionCliente" th:field="*{cliente.direccion}" required>
+    </div>
+
+    <label for="mesa">Mesa:</label>
+    <select id="mesa" th:field="*{mesa.idMesa}">
+        <option th:each="mesa : ${mesas}" th:value="${mesa.idMesa}" th:text="${mesa.numeroMesa}"></option>
+    </select>
+
+    <label for="fechaHora">Fecha y Hora:</label>
+    <input type="datetime-local" id="fechaHora" th:field="*{fechaHora}" required>
+
+    <label for="numeroPersonas">Número de Personas:</label>
+    <input type="number" id="numeroPersonas" th:field="*{numeroPersonas}" required>
+
+    <input type="submit" value="Guardar">
+</form>
+</body>
+</html>

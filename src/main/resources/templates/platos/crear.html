@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurapp - Crear Plato</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Crear Plato</h1>
+<form th:action="@{/platos/guardar}" th:object="${plato}" method="post">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" th:field="*{nombre}" required>
+
+    <label for="descripcion">Descripción:</label>
+    <input type="text" id="descripcion" th:field="*{descripcion}">
+
+    <label for="precio">Precio:</label>
+    <input type="number" id="precio" th:field="*{precio}" required>
+
+    <input type="submit" value="Guardar">
+</form>
+</body>
+</html>
