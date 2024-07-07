@@ -19,11 +19,17 @@ public class WebConfig implements WebMvcConfigurer {
                 .resourceChain(true)
                 .addResolver(new PathResourceResolver() {
                     @Override
-                    protected Resource getResource(String resourcePath, Resource location) throws IOException, IOException {
+                    protected Resource getResource(String resourcePath, Resource location) throws IOException {
+                        if (isStaticResource(resourcePath)) {
+                            return null;
+                        }
                         Resource requestedResource = location.createRelative(resourcePath);
-                        return requestedResource.exists() && requestedResource.isReadable() ? requestedResource : new ClassPathResource("/static/error.html");
+                        return requestedResource.exists() && requestedResource.isReadable() ? requestedResource : new ClassPathResource("/templates/error/error.html");
+                    }
+
+                    private boolean isStaticResource(String resourcePath) {
+                        return resourcePath.startsWith("/css/") || resourcePath.startsWith("/js/") || resourcePath.startsWith("/images/");
                     }
                 });
     }
 }
-

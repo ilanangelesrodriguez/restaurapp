@@ -5,25 +5,38 @@
     <title>Restaurapp - Crear Empleado</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
-<body>
-<h1>Crear Empleado</h1>
-<form th:action="@{/empleados/guardar}" th:object="${empleado}" method="post">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" th:field="*{nombre}" required>
+<body class="body">
+<div class="content">
+    <header class="header-flex">
+        <h1>Restaurapp</h1>
+        <a href="/" class="login-button">Inicio</a>
+    </header>
+    <main class="main-index">
+        <h1>Crear Empleado</h1>
+        <form th:action="@{/empleados/guardar}" th:object="${empleado}" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" th:field="*{nombre}" required>
 
-    <label for="apellido">Apellido:</label>
-    <input type="text" id="apellido" th:field="*{apellido}" required>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" th:field="*{apellido}" required>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" th:field="*{email}" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" th:field="*{email}" required>
 
-    <label for="clave">Clave:</label>
-    <input type="password" id="clave" th:field="*{clave}" required>
+            <label for="clave">Clave:</label>
+            <input type="password" id="clave" th:field="*{clave}" required>
 
-    <label for="telefono">Teléfono:</label>
-    <input type="tel" id="telefono" th:field="*{telefono}" required>
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" th:field="*{telefono}" required>
 
-    <input type="submit" value="Guardar">
-</form>
+            <input type="submit" value="Guardar">
+        </form>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Restaurapp</p>
+        </div>
+    </footer>
+</div>
 </body>
 </html>

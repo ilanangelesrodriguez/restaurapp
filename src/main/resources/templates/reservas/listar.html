@@ -5,30 +5,44 @@
     <title>Restaurapp - Reservas</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
-<body>
-<h1>Reservas</h1>
-<a href="/reservas/crear">Nueva reserva</a>
-<table>
-    <thead>
-    <tr>
-        <th>Cliente</th>
-        <th>Mesa</th>
-        <th>Fecha y Hora</th>
-        <th>Número de Personas</th>
-        <th>Acciones</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="reserva : ${reservas}">
-        <td th:text="${reserva.cliente.nombre} + ' ' + ${reserva.cliente.apellido}">Cliente</td>
-        <td th:text="${reserva.mesa.numeroMesa}">Mesa</td>
-        <td th:text="${#dates.format(reserva.fechaHoraAsDate, 'dd-MM-yyyy HH:mm')}">Fecha y Hora</td>        <td th:text="${reserva.numeroPersonas}">Número de Personas</td>
-        <td>
-            <a th:href="@{'/reservas/editar/' + ${reserva.idReserva}}">Editar</a>
-            <a th:href="@{'/reservas/eliminar/' + ${reserva.idReserva}}">Eliminar</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<body class="body">
+<div class="content">
+    <header class="header-flex">
+        <h1>Restaurapp</h1>
+        <a href="/" class="login-button">Inicio</a>
+    </header>
+    <main class="main-index">
+        <h1>Reservas</h1>
+        <a href="/reservas/crear">Nueva reserva</a>
+        <table>
+            <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Mesa</th>
+                <th>Fecha y Hora</th>
+                <th>Número de Personas</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="reserva : ${reservas}">
+                <td th:text="${reserva.cliente.nombre} + ' ' + ${reserva.cliente.apellido}">Cliente</td>
+                <td th:text="${reserva.mesa.numeroMesa}">Mesa</td>
+                <td th:text="${#dates.format(reserva.fechaHoraAsDate, 'dd-MM-yyyy HH:mm')}">Fecha y Hora</td>        <td th:text="${reserva.numeroPersonas}">Número de Personas</td>
+                <td>
+                    <a th:href="@{'/reservas/editar/' + ${reserva.idReserva}}">Editar</a>
+                    <a th:href="@{'/reservas/eliminar/' + ${reserva.idReserva}}">Eliminar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Restaurapp</p>
+        </div>
+    </footer>
+</div>
 </body>
 </html>

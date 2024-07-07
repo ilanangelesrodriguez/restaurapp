@@ -5,33 +5,43 @@
     <title>Restaurapp - Platos</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
-<body>
-<h1>Platos</h1>
-<a href="/platos/crear">Nuevo plato</a>
-<table>
-    <thead>
-    <tr>
-        <th>Nombre</th>
-        <th>Descripción</th>
-        <th>Precio</th>
-        <th>Empleado Asignado</th>
-        <th>Acciones</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="plato : ${platos}">
-        <td th:text="${plato.nombre}">Nombre</td>
-        <td th:text="${plato.descripcion}">Descripción</td>
-        <td th:text="${plato.precio}">Precio</td>
-        <td th:text="${plato.empleado != null ? plato.empleado.nombre : 'N/A'}">Empleado Asignado</td>
-        <!--<td th:text="${mesa.empleado.nombre} + ' ' + ${mesa.empleado.apellido}">Empleado Asignado</td>-->
+<body class="body">
+    <div class="content">
+        <header class="header-flex">
+            <h1>Restaurapp</h1>
+            <a href="/" class="login-button">Inicio</a>
+        </header>
+        <main class="main-index">
+            <h1>Platos</h1>
+            <a href="/platos/crear">Nuevo plato</a>
+            <table>
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Empleado Asignado</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="plato : ${platos}">
+                    <td th:text="${plato.nombre}">Nombre</td>
+                    <td th:text="${plato.descripcion}">Descripción</td>
+                    <td th:text="${plato.precio}">Precio</td>
+                    <td th:text="${plato.empleado != null ? plato.empleado.nombre : 'N/A'}">Empleado Asignado</td>
+                    <!--<td th:text="${mesa.empleado.nombre} + ' ' + ${mesa.empleado.apellido}">Empleado Asignado</td>-->
 
-        <td>
-            <a th:href="@{'/platos/editar/' + ${plato.idPlato}}">Editar</a>
-            <a th:href="@{'/platos/eliminar/' + ${plato.idPlato}}">Eliminar</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+                    <td>
+                        <a th:href="@{'/platos/editar/' + ${plato.idPlato}}">Editar</a>
+                        <a th:href="@{'/platos/eliminar/' + ${plato.idPlato}}">Eliminar</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </main>
+
+
+    </div>
 </body>
 </html>

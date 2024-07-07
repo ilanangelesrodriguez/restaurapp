@@ -5,29 +5,43 @@
     <title>Restaurapp</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
-<body>
-    <h1>Clientes</h1>
-    <a href="/clientes/crear">Nuevo cliente</a>
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Correo</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="cliente : ${clientes}">
-                <td th:text="${cliente.nombre}">Nombre</td>
-                <td th:text="${cliente.apellido}">Apellido</td>
-                <td th:text="${cliente.email}">Correo</td>
-                <td>
-                    <a th:href="@{'/clientes/editar/' + ${cliente.idCliente}}">Editar</a>
-                    <a th:href="@{'/clientes/eliminar/' + ${cliente.idCliente}}">Eliminar</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<body class="body">
+<div class="content">
+    <header class="header-flex">
+        <h1>Restaurapp</h1>
+        <a href="/" class="login-button">Inicio</a>
+    </header>
+    <main class="main-index">
+        <h1>Clientes</h1>
+        <a href="/clientes/crear">Nuevo cliente</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cliente : ${clientes}">
+                    <td th:text="${cliente.nombre}">Nombre</td>
+                    <td th:text="${cliente.apellido}">Apellido</td>
+                    <td th:text="${cliente.email}">Correo</td>
+                    <td>
+                        <a th:href="@{'/clientes/editar/' + ${cliente.idCliente}}">Editar</a>
+                        <a th:href="@{'/clientes/eliminar/' + ${cliente.idCliente}}">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Restaurapp</p>
+        </div>
+    </footer>
+</div>
 </body>
 </html>

@@ -5,29 +5,42 @@
     <title>Restaurapp - Empleados</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
-<body>
-<h1>Empleados</h1>
-<a href="/empleados/crear">Nuevo empleado</a>
-<table>
-    <thead>
-    <tr>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Correo</th>
-        <th>Acciones</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="empleado : ${empleados}">
-        <td th:text="${empleado.nombre}">Nombre</td>
-        <td th:text="${empleado.apellido}">Apellido</td>
-        <td th:text="${empleado.email}">Correo</td>
-        <td>
-            <a th:href="@{'/empleados/editar/' + ${empleado.idEmpleado}}">Editar</a>
-            <a th:href="@{'/empleados/eliminar/' + ${empleado.idEmpleado}}">Eliminar</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<body class="body">
+<div class="content">
+    <header class="header-flex">
+        <h1>Restaurapp</h1>
+        <a href="/" class="login-button">Inicio</a>
+    </header>
+    <main class="main-index">
+        <h1>Empleados</h1>
+        <a href="/empleados/crear">Nuevo empleado</a>
+        <table>
+            <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="empleado : ${empleados}">
+                <td th:text="${empleado.nombre}">Nombre</td>
+                <td th:text="${empleado.apellido}">Apellido</td>
+                <td th:text="${empleado.email}">Correo</td>
+                <td>
+                    <a th:href="@{'/empleados/editar/' + ${empleado.idEmpleado}}">Editar</a>
+                    <a th:href="@{'/empleados/eliminar/' + ${empleado.idEmpleado}}">Eliminar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Restaurapp</p>
+        </div>
+    </footer>
+</div>
 </body>
 </html>

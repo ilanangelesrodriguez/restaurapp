@@ -5,34 +5,49 @@
     <title>Restaurapp - Mesas</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
-<body>
-<h1>Mesas</h1>
-<a href="/mesas/crear">Nueva mesa</a>
-<table>
-    <thead>
-    <tr>
-        <th>Número de Mesa</th>
-        <th>Capacidad</th>
-        <th>Estado</th>
-        <th>Empleado Asignado</th>
-        <th>Acciones</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="mesa : ${mesas}">
-        <td th:text="${mesa.numeroMesa}">Número de Mesa</td>
-        <td th:text="${mesa.capacidad}">Capacidad</td>
-        <td th:text="${mesa.estado}">Estado</td>
+<body class="body">
+    <div class="content">
+        <header class="header-flex">
+            <h1>Restaurapp</h1>
+            <a href="/" class="login-button">Inicio</a>
+        </header>
+        <main class="main-index">
+            <h1>Mesas</h1>
+            <a href="/mesas/crear">Nueva mesa</a>
+            <table>
+                <thead>
+                <tr>
+                    <th>Número de Mesa</th>
+                    <th>Capacidad</th>
+                    <th>Estado</th>
+                    <th>Empleado Asignado</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="mesa : ${mesas}">
+                    <td th:text="${mesa.numeroMesa}">Número de Mesa</td>
+                    <td th:text="${mesa.capacidad}">Capacidad</td>
+                    <td th:text="${mesa.estado}">Estado</td>
 
-        <td th:text="${mesa.empleado != null ? mesa.empleado.nombre : 'N/A'}">Empleado Asignado</td>
-        <!--<td th:text="${mesa.empleado.nombre} + ' ' + ${mesa.empleado.apellido}">Empleado Asignado</td>-->
+                    <td th:text="${mesa.empleado != null ? mesa.empleado.nombre : 'N/A'}">Empleado Asignado</td>
+                    <!--<td th:text="${mesa.empleado.nombre} + ' ' + ${mesa.empleado.apellido}">Empleado Asignado</td>-->
 
-        <td>
-            <a th:href="@{'/mesas/editar/' + ${mesa.idMesa}}">Editar</a>
-            <a th:href="@{'/mesas/eliminar/' + ${mesa.idMesa}}">Eliminar</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+                    <td>
+                        <a th:href="@{'/mesas/editar/' + ${mesa.idMesa}}">Editar</a>
+                        <a th:href="@{'/mesas/eliminar/' + ${mesa.idMesa}}">Eliminar</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </main>
+
+
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2024 Restaurapp</p>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

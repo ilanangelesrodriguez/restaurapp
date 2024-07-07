@@ -28,7 +28,9 @@ public class Reserva {
     private Integer numeroPersonas;
 
     public Date getFechaHoraAsDate() {
-        return java.sql.Timestamp.valueOf(this.fechaHora);
+        return null;
     }
 
+    public void setCliente(Cliente cliente) {
+    }
 }

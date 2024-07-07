@@ -33,4 +33,22 @@ public class ControladorMesa {
         servicioMesa.guardar(mesa);
         return "redirect:/mesas";
     }
+
+    @GetMapping("/editar")
+    public String editar(Long id, Model model) {
+        model.addAttribute("mesa", servicioMesa.buscarPorId(id));
+        return "mesas/editar";
+    }
+
+    @PostMapping("/actualizar")
+    public String actualizar(Mesa mesa) {
+        servicioMesa.actualizar(mesa);
+        return "redirect:/mesas";
+    }
+
+    @GetMapping("/eliminar/{id}")
+    public String eliminar(Long id) {
+        servicioMesa.eliminarPorId(id);
+        return "redirect:/mesas";
+    }
 }

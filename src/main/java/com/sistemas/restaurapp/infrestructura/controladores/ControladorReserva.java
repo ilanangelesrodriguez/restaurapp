@@ -41,10 +41,28 @@ public class ControladorReserva {
     public String guardar(Reserva reserva, Cliente cliente) {
 
         servicioCliente.guardar(cliente);
-
         reserva.setCliente(cliente);
         servicioReserva.guardar(reserva);
 
+        return "redirect:/reservas";
+    }
+
+    @GetMapping("/editar")
+    public String editar(Long id, Model model) {
+        model.addAttribute("reserva", servicioReserva.buscarPorId(id));
+        model.addAttribute("mesas", servicioMesa.buscarTodos());
+        return "reservas/editar";
+    }
+
+    @PostMapping("/actualizar")
+    public String actualizar(Reserva reserva) {
+        servicioReserva.actualizar(reserva);
+        return "redirect:/reservas";
+    }
+
+    @GetMapping("/eliminar/{id}")
+    public String eliminar(Long id) {
+        servicioReserva.eliminarPorId(id);
         return "redirect:/reservas";
     }
 

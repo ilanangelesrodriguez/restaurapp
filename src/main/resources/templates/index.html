@@ -4,26 +4,37 @@
     <meta charset="UTF-8">
     <title>Restaurapp</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="icon" type="image/jpg" th:href="@{/images/logo.jpg}">
 </head>
-<body class="background--custom">
+<body class="body">
 <div class="content">
     <header class="header-flex">
-        <h1>Bienvenido a Restaurapp</h1>
+        <h1>Restaurapp</h1>
         <a href="/login" class="login-button">Iniciar sesión</a>
     </header>
-    <main>
+    <main class="main-index">
         <div class="main-content">
-            <h2>Inicio</h2>
-            <p>¡Bienvenido a Restaurapp! Utiliza el menú de navegación para explorar el sitio.</p>
-        </div>
-        <div class="content">
-            <div class="card">
-                <a href="/mesas">Mesas</a>
+            <div class="main-description">
+                <h1 class="main-h1">¡Bienvenido a Restaurapp!</h1>
+                <p>Utiliza el menú de navegación para explorar el sitio. Descubre nuestros deliciosos platos y reserva tu mesa fácilmente.</p>
+                <p>Explore nuestra variada carta y disfruta de una experiencia culinaria única. Ya sea para una cena romántica, un almuerzo de negocios o una celebración especial, estamos aquí para servirte.</p>
+                <div class="cards-container">
+                    <div class="card">
+                        <p>Reserva tu mesa con anticipación y asegura tu lugar en nuestro restaurante.</p>
+                        <a href="/mesas" class="card-link">Mesas</a>
+                    </div>
+                    <div class="card">
+                        <p>Explora nuestra carta y descubre los sabores que tenemos para ofrecerte.</p>
+                        <a href="/platos" class="card-link">Platos</a>
+                    </div>
+                </div>
+
             </div>
-            <div class="card">
-                <a href="/platos">Platos</a>
+            <div class="main-img">
+                <img src="@{/images/cook.png}" alt="Restaurante" th:src="@{/images/cook.png}">
             </div>
         </div>
+
     </main>
     <footer>
         <div class="footer-content">

@@ -33,4 +33,23 @@ public class ControladorCliente {
         servicioCliente.guardar(cliente);
         return "redirect:/clientes";
     }
+
+    @GetMapping("/editar")
+    public String editar(Long id, Model model) {
+        model.addAttribute("cliente", servicioCliente.buscarPorId(id));
+        return "clientes/editar";
+    }
+
+    @PostMapping("/actualizar")
+    public String actualizar(Cliente cliente) {
+        servicioCliente.actualizar(cliente);
+        return "redirect:/clientes";
+    }
+
+    @GetMapping("/eliminar/{id}")
+    public String eliminar(Long id) {
+        servicioCliente.eliminarPorId(id);
+        return "redirect:/clientes";
+    }
+
 }

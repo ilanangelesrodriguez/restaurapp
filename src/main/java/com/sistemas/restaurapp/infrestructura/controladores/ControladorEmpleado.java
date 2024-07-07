@@ -33,4 +33,23 @@ public class ControladorEmpleado {
         servicioEmpleado.guardar(empleado);
         return "redirect:/empleados/listar";
     }
+
+    @GetMapping("/editar")
+    public String editar(Long id, Model model) {
+        model.addAttribute("empleado", servicioEmpleado.buscarPorId(id));
+        return "empleados/editar";
+    }
+
+    @PostMapping("/actualizar")
+    public String actualizar(Empleado empleado) {
+        servicioEmpleado.actualizar(empleado);
+        return "redirect:/empleados/listar";
+    }
+
+    @GetMapping("/eliminar/{id}")
+    public String eliminar(Long id) {
+        servicioEmpleado.eliminarPorId(id);
+        return "redirect:/empleados/listar";
+    }
+
 }
